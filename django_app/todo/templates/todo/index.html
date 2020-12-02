@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ToDo App</title>
+
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'todo/bs/css/flatly.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'todo/styles.css' %}" />
+	</head>
+	<body>
+
+		<div class="container-fluid" id="wrapper">
+			
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-4" id="content">
+					<h2>To-Do list</h2>
+					
+					<form action="{% url 'add' %}" method="POST" role="form">
+						{% csrf_token %}
+						<div class="form-group">
+							<div class="input-group">
+							  {{ form.text }}
+							  <span class="input-group-btn">
+								  <button type="submit" class="btn btn-default" id="add-btn">Ajouter tâche</button>
+							  </span>
+							</div>
+						</div>
+					</form>
+
+					<ul class="list-group t20">
+						{% for todo in todo_list %}
+						{% if todo.complete %}
+						<li class="list-group-item todo-completed">{{ todo.text }}</li>
+						{% else %}
+						<a href="{% url 'complete' todo.id %}" class="aclass">
+							<hr>
+							<li class="list-group-item">{{ todo.text }}</li>
+							<i class="glyphicon glyphicon-ok"><p>Cliquer pour barrer cette tâche !</p></i>
+						</a>
+						<a href="{% url 'delete' todo.id %}" class="aclass">
+							<i class="glyphicon glyphicon-remove glyphicon-removetxt"><p>Cliquer pour supprimer cette tâche !</p></i>
+						</a>
+						<hr>
+						{% endif %}
+						{% endfor %}
+					</ul>
+
+
+					<div class="row t10">
+						<div class="col-lg-12">
+							<div class="btn-toolbar">
+								<div class="btn-group">
+									<a href="{% url 'deletecomplete' %}"><button type="button" class="btn btn-warning">
+										<i class="glyphicon glyphicon-remove"></i> Supprimer que les tâches finis
+									</button></a>
+								</div>
+								<div class="btn-group">
+									<a href="{% url 'deleteall' %}"><button type="button" class="btn btn-warning">
+										<i class="glyphicon glyphicon-remove"></i> Supprimer toutes les tâches
+									</button></a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+		</div>
+	</body>
+</html>

@@ -1,0 +1,101 @@
+body {
+	background: white;
+	background-image: url(https://hedinoamane.fr/img/Background.jpg);
+	margin: auto;
+	background-repeat: repeat-y;
+	background-position: center;
+	width: 100%;
+	background-size: auto;
+	font-family: 'Nerko One', cursive;
+}
+h1, h2, h3, h4, h5, h6, p{
+	font-family: 'Nerko One', cursive;
+}
+.glyphicon-remove{
+	color: #ffffff;
+}
+#wrapper {
+	margin-top: 10% !important;
+}
+#content {
+	background:rgba(0,0,0, 0.3);
+	padding: 30px;
+	border-radius: 15px;
+}
+#content > h2 {
+	font-size: 22px;
+	text-align: center;
+	padding-top: 0;
+	color: #ffffff;
+}
+.t10 {
+	margin-top: 10px;
+}
+.t20 {
+	margin-top: 20px;
+}
+.todo-completed {
+	text-decoration: line-through;
+	background: rgba(149, 165, 166, .3);
+}
+footer {
+	margin-top: 20px;
+	color: white;
+}
+.list-group-item {
+	color: black;
+}
+.btn-default {
+	color: black;
+	background-color: greenyellow;
+	border-color: greenyellow;
+}
+.btn-default:hover{
+	background-color: greenyellow;
+	border-color: greenyellow;
+}
+.btn-warning {
+	color: #ffffff;
+	background-color: red;
+	border-color: red;
+	border-radius: 50px;
+}
+.btn-warning:hover{
+	color: #ffffff;
+	background-color: darkred;
+	border-color: darkred;
+}
+.list-group-item {
+	color: white;
+	font-size: 30px;
+	background-color: transparent;
+	border: none;
+}
+.list-group-item:hover{
+	text-decoration: line-through 3px red;
+	background-color: grey;
+}
+.todo-completed {
+	text-decoration: line-through 3px red !important;
+	background-color: grey;
+	color: white;
+}
+.todo-completed:hover{
+	text-decoration: line-through 3px red !important;
+}
+li:hover, ul:hover, a:hover{
+	text-decoration: none;
+}
+.glyphicon-ok, .glyphicon-removetxt{
+	padding: 20px;
+	display: flex;
+}
+.aclass:hover{
+	background-color: grey !important;
+}
+.glyphicon-ok p, .glyphicon-removetxt p{
+	margin-left: 20px;
+}
+.glyphicon-removetxt{
+	color: red;
+}
